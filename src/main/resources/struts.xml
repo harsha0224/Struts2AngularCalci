@@ -1,0 +1,59 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="json-default">
+		<interceptors>
+			<interceptor name="json"
+				class="org.apache.struts2.json.JSONInterceptor" />
+		</interceptors>
+		<action name="calciForm">
+			<result>/WEB-INF/view/calciPage.jsp</result>
+		</action>
+
+		<action name="Addition" class="com.indus.training.action.CalciAction"
+			method="add">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="json" />
+			<result type="json">
+				<param name="root">calOutObj</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+
+		<action name="Subtraction" class="com.indus.training.action.CalciAction"
+			method="sub">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="json" />
+			<result type="json">
+				<param name="root">calOutObj</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+
+		<action name="Multiplication" class="com.indus.training.action.CalciAction"
+			method="mul">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="json" />
+			<result type="json">
+				<param name="root">calOutObj</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+
+		<action name="Division" class="com.indus.training.action.CalciAction"
+			method="div">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="json" />
+			<result type="json">
+				<param name="root">calOutObj</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+</struts>
