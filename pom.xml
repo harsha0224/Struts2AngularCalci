@@ -5,7 +5,7 @@
 	<artifactId>Struts2AngularCalci</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Struts2AngularCalci Maven Webapp</name>
+	<name>Struts2AngularCalci</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -26,7 +26,28 @@
 		</dependency>
 
 	</dependencies>
+	<properties>
+		<build.number>SNAPSHOT</build.number>
+	</properties>
 	<build>
 		<finalName>Struts2AngularCalci</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<manifest>
+						<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+					</manifest>
+					<archive>
+						<manifestEntries>
+							<Specification-Title>${project.name}</Specification-Title>
+							<Specification-Version>${project.version}</Specification-Version>
+							<Implementation-Version>${build.number}</Implementation-Version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
